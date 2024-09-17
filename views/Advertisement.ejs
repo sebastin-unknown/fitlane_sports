@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<!-- Meta Tag -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='copyright' content=''>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Title Tag  -->
+    <title>Eshop - eCommerce HTML5 Template.</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<!-- Web Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+	
+	<!-- StyleSheet -->
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="../assets/css/bootstrap.css" type="text/css">
+	<!-- Magnific Popup -->
+    <link rel="stylesheet" href="../assets/css/magnific-popup.min.css" type="text/css">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="../assets/css/font-awesome.css" type="text/css">
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css" type="text/css">
+	<!-- Themify Icons -->
+    <link rel="stylesheet" href="../assets/css/themify-icons.css" type="text/css">
+	<!-- Nice Select CSS -->
+    <link rel="stylesheet" href="../assets/css/niceselect.css" type="text/css">
+	<!-- Animate CSS -->
+    <link rel="stylesheet" href="../assets/css/animate.css" type="text/css">
+	<!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="../assets/css/flex-slider.min.css" type="text/css">
+	<!-- Owl Carousel -->
+    <link rel="stylesheet" href="../assets/css/owl-carousel.css" type="text/css">
+	<!-- Slicknav -->
+    <link rel="stylesheet" href="../assets/css/slicknav.min.css">
+	
+	<!-- Eshop StyleSheet -->
+	<link rel="stylesheet" href="../assets/css/reset.css" type="text/css">
+	<link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css" type="text/css">
+
+	
+	
+</head>
+  <body>
+    <div id="wrapper">
+      <%-include('sidenavbar.ejs')-%>
+
+      <div id="content-wrapper" class="d-flex flex-column">
+
+    <div class=" container">
+    <form action="/AdVadd"  method="post" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Product name</label>
+          <input name="name" type="text" class="form-control" id="validationCustom01" required>
+          <div class="invalid-feedback">
+            Please provide a valid Product name.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom02" class="form-label">Product price</label>
+          <input name="Collection" type="text" class="form-control" id="validationCustom02" required>
+          <div class="invalid-feedback">
+            Please provide a valid Product price.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">Product Description</label>
+          <textarea name="Description" type="text" class="form-control" id="validationCustom03" required></textarea>
+          <div class="invalid-feedback">
+            Please provide a valid Product Description.
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="validationCustom05" class="form-label">Product Category</label>
+          <select name="AdvertismentBanner" type="text" class="form-control" id="validationCustom05" required>
+            <option selected disabled value="">Choose your product Category</option>
+              <option value="Cricket Sports1">Cricket Sports</option>
+              <option value="Football Sports2">Football Sports</option>
+              <option value="Badminton3">Badminton</option>
+              <option value="volleyball4">volleyball</option>
+              <option value="Kabaddi5">Kabaddi</option>
+              <option value="Tennis6">Tennis</option>
+              <option value="sTamilnadu traditional game7">Tamilnadu traditional game</option>
+          </select>
+          <div class="invalid-feedback">
+          
+            Please provide a valid Product Category.
+          </div>
+        </div>
+
+        
+        <!-- HERE WE NEED TO USE FILEPOND -->
+        <div class="ui field">
+            <label for="img">Product Image</label>
+           <input type="file" name="img" id="img" class="filepond filepond--item" required>
+           <div class="invalid-feedback">
+            Please upload product a Image.
+          </div>
+       </div>
+        
+        <div class="col-12">
+            <button class="ui fluid blue button" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+<!-- display -->
+    <br><br>
+<div class=" container">
+    <% if(ad) { %>
+        <div class="ui small stackable images ">
+            <% ad.forEach(m => { %>
+           <img src="<%= m.coverImagePath %>" style="height: 300px; width:500px ;" alt="" class="ui image">
+            <% }) %>
+        </div>
+    <% } %>
+</div>
+<%-include('sidenavbarfooter.ejs')-%>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    </script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+    
+
+    <!-- Jquery -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery-migrate-3.0.0.js"></script>
+	<script src="../assets/js/jquery-ui.min.js"></script>
+	<!-- Popper JS -->
+	<script src="../assets/js/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<!-- Color JS -->
+	<!-- <script src="../assets/js/colors.js"></script> -->
+	<!-- Slicknav JS -->
+	<script src="../assets/js/slicknav.min.js"></script>
+	<!-- Owl Carousel JS -->
+	<script src="../assets/js/owl-carousel.js"></script>
+	<!-- Magnific Popup JS -->
+	<script src="../assets/js/magnific-popup.js"></script>
+	<!-- Waypoints JS -->
+	<script src="../assets/js/waypoints.min.js"></script>
+	<!-- Countdown JS -->
+	<script src="../assets/js/finalcountdown.min.js"></script>
+	<!-- Nice Select JS -->
+	<script src="../assets/js/nicesellect.js"></script>
+	<!-- Flex Slider JS -->
+	<script src="../assets/js/flex-slider.js"></script>
+	<!-- ScrollUp JS -->
+	<script src="../assets/js/scrollup.js"></script>
+	<!-- Onepage Nav JS -->
+	<script src="../assets/js/onepage-nav.min.js"></script>
+	<!-- Easing JS -->
+	<script src="../assets/js/easing.js"></script>
+	<!-- Active JS -->
+	<script src="../assets/js/active.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ismai hamne (m.coverImagePath) lika hai or ye movie.js maise call kiya hai 
